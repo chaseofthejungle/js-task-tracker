@@ -1,1 +1,1 @@
-# task-tracker
+# This is a simple Task Tracker app, with the ability to add, rename, and delete tasks.

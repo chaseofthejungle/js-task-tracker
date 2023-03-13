@@ -1,0 +1,167 @@
+/* General Styling */
+* {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+body {
+    background: #aaf;
+}
+
+#task-header {
+    font-size: 18px;
+    color: #000;
+    padding-bottom: 25px;
+}
+
+#completed-tasks label {
+    text-decoration: line-through;
+    color: #1C3;
+}
+
+#incomplete-tasks label {
+    font-style: italic;
+}
+
+
+.list-btn {
+    outline: solid;
+    outline-width: 2px;
+    outline-style: inset;
+    border-radius: 5px;
+    outline-color: rgb(60, 0, 68);
+}
+
+/* Element Layouts */
+.tracker-container {
+    display: block;
+    width: 500px;
+    margin: 50px auto 0;
+}
+    
+ul {
+    margin: 5;
+    padding: 0;
+}
+    
+li * {
+    float: left;
+}
+    
+li, h3 {
+    clear: both;
+    list-style: none;
+}
+    
+button {
+    background: none;
+    border: none;
+    color: #004;
+    font-size: 16px;
+    width: 100px;
+    margin: 10px 0 0;
+    font-family: sans-serif;
+    cursor: pointer;
+}
+
+.list-btn {
+    font-size: 18px;
+}
+
+.list-btn:hover {
+    color: #00f;
+}
+
+button:hover {
+    color: #33f;
+}
+
+/* Labels and Input */
+h3, label[for='new-task'] {
+    color: #110;
+    font-weight: 700;
+    font-size: 15px;
+    border-bottom: 2px solid #333;
+    padding: 30px 0 10px;
+    margin: 0;
+}
+    
+input[type="text"] {
+    margin: 0;
+    font-size: 18px;
+    line-height: 18px;
+    height: 18px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background: #fff;
+    border-radius: 6px;
+    color: #00f;
+}
+    
+input[type="text"]:focus {
+    color: #119;
+}
+
+input[type="checkbox"] {
+    transform: scale(1.2);
+}
+
+.main {
+    text-align: center;
+}
+
+.middle {
+    text-align: left;
+    font-size: 14px;
+}
+        
+/* New Task Layout */
+label[for='new-task'] {
+    display: block;
+    margin: 0 0 20px;
+}
+    
+input#new-task {
+    float: right;
+    width: 318px;
+}
+    
+/* Task List Layout */
+li {
+    overflow: hidden;
+    padding: 10px 0;
+    border-bottom: 1px solid #143;
+}
+    
+li > input[type="checkbox"] {
+    margin: 0 10px;
+    position: relative;
+    top: 15px;
+}
+    
+li > label {
+    font-size: 18px;
+    line-height: 40px;
+    width: 237px;
+    padding: 0 0 0 12px;
+}
+    
+li > input[type="text"] {
+    width: 226px;
+}
+
+li > .delete:hover {
+    color: #CF2323;
+}
+
+/* Edit Task Display Levels */
+ul li input[type=text] {
+    display: none;
+}
+    
+ul li.renameMode input[type=text] {
+    display: block;
+}
+    
+ul li.renameMode label {
+    display: none;
+}
