@@ -17,15 +17,12 @@ body {
     font-size: 18px;
     color: #000;
     padding-bottom: 25px;
+    letter-spacing: .2rem;
 }
 
 #completed-tasks label {
     text-decoration: line-through;
     color: rgb(0, 200, 200);
-}
-
-#incomplete-tasks label {
-    font-style: italic;
 }
 
 .list-btn {
