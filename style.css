@@ -4,7 +4,13 @@
 }
 
 body {
-    background: #aaf;
+    background: radial-gradient(lightcyan, transparent);
+}
+
+.tracker-container {
+    background: radial-gradient(lightyellow,lightblue);
+    padding: 50px;
+    border-radius: 20px;
 }
 
 #task-header {
@@ -21,7 +27,6 @@ body {
 #incomplete-tasks label {
     font-style: italic;
 }
-
 
 .list-btn {
     outline: solid;
