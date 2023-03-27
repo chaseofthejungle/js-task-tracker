@@ -15,7 +15,7 @@ body {
 
 #completed-tasks label {
     text-decoration: line-through;
-    color: #1C3;
+    color: rgb(0, 200, 200);
 }
 
 #incomplete-tasks label {
@@ -29,6 +29,16 @@ body {
     outline-style: inset;
     border-radius: 5px;
     outline-color: rgb(60, 0, 68);
+    background: rgb(255, 255, 255);
+}
+
+.rename, .delete {
+    background: rgb(200, 200, 255);
+    border-radius: 20px;
+}
+
+.rename {
+    margin-right: 10px;
 }
 
 /* Element Layouts */
