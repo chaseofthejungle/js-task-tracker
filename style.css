@@ -18,6 +18,7 @@ body {
     color: #000;
     padding-bottom: 25px;
     letter-spacing: .2rem;
+    font-style: oblique;
 }
 
 #completed-tasks label {
