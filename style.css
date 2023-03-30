@@ -8,17 +8,17 @@ body {
 }
 
 .tracker-container {
-    background: radial-gradient(lightyellow,lightblue);
-    padding: 50px;
     border-radius: 20px;
+    padding: 50px;
+    background: radial-gradient(lightyellow,lightblue);
 }
 
 #task-header {
+    padding-bottom: 25px;    
     font-size: 18px;
-    color: #000;
-    padding-bottom: 25px;
-    letter-spacing: .2rem;
     font-style: oblique;
+    letter-spacing: .2rem;
+    color: #000;
 }
 
 #completed-tasks label {
@@ -27,17 +27,17 @@ body {
 }
 
 .list-btn {
-    outline: solid;
-    outline-width: 2px;
-    outline-style: inset;
     border-radius: 5px;
+    outline: solid;
+    outline-style: inset;
+    outline-width: 2px;
     outline-color: rgb(60, 0, 68);
     background: rgb(255, 255, 255);
 }
 
 .rename, .delete {
-    background: rgb(200, 200, 255);
     border-radius: 20px;
+    background: rgb(200, 200, 255);
 }
 
 .rename {
@@ -47,8 +47,8 @@ body {
 /* Element Layouts */
 .tracker-container {
     display: block;
-    width: 500px;
     margin: 50px auto 0;
+    width: 500px;
 }
     
 ul {
@@ -66,14 +66,14 @@ li, h3 {
 }
     
 button {
-    background: none;
-    border: none;
-    color: #004;
-    font-size: 16px;
-    width: 100px;
     margin: 10px 0 0;
-    font-family: sans-serif;
+    border: none;
+    width: 100px;
+    background: none;
     cursor: pointer;
+    font-size: 16px;
+    font-family: sans-serif;
+    color: #004;
 }
 
 .list-btn {
@@ -100,13 +100,13 @@ h3, label[for='new-task'] {
     
 input[type="text"] {
     margin: 0;
-    font-size: 18px;
-    line-height: 18px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
     height: 18px;
     padding: 10px;
-    border: 1px solid #ddd;
     background: #fff;
-    border-radius: 6px;
+    font-size: 18px;
+    line-height: 18px;
     color: #00f;
 }
     
@@ -123,8 +123,8 @@ input[type="checkbox"] {
 }
 
 .middle {
-    text-align: left;
     font-size: 14px;
+    text-align: left;
 }
         
 /* New Task Layout */
@@ -141,21 +141,21 @@ input#new-task {
 /* Task List Layout */
 li {
     overflow: hidden;
-    padding: 10px 0;
     border-bottom: 1px solid #143;
+    padding: 10px 0;
 }
     
 li > input[type="checkbox"] {
-    margin: 0 10px;
     position: relative;
     top: 15px;
+    margin: 0 10px;
 }
     
 li > label {
-    font-size: 18px;
-    line-height: 40px;
     width: 237px;
     padding: 0 0 0 12px;
+    font-size: 18px;
+    line-height: 40px;
 }
     
 li > input[type="text"] {
