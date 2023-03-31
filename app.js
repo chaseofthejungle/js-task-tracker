@@ -1,39 +1,37 @@
-// 1. Add Elements
-let taskInput = document.getElementById("new-task"); // New Task Element
-let addButton = document.getElementsByTagName("button")[0]; // Button Element #1
-let incompleteTaskHolder = document.getElementById("incomplete-tasks"); // List of Incomplete Tasks
-let completedTasksHolder = document.getElementById("completed-tasks"); // List of Completed Tasks
+// 1. Retrieve Elements that Handle Initial Task Creation
+let taskInput = document.getElementById("new-task");
+let addButton = document.getElementsByTagName("button")[0];
+let incompleteTaskList = document.getElementById("incomplete-tasks");
+let completedTaskList = document.getElementById("completed-tasks");
 
-// 2. Create a New Task Item (using a Function)
+// 2. Prepare (Declare, Append) Elements Needed for List Items
 let createNewTaskElement = function (taskString) {
 	let listItem = document.createElement("li");
+	let checkBox = document.createElement("input");
+	let label = document.createElement("label");
+	let editInput = document.createElement("input");
+	let renameButton = document.createElement("button");
+	let deleteButton = document.createElement("button");
 
-	let checkBox = document.createElement("input"); // input checkbox
-	let label = document.createElement("label"); // label
-	let editInput = document.createElement("input"); // input text
-	let renameButton = document.createElement("button"); // rename button
-	let deleteButton = document.createElement("button"); // delete button
-
-	label.innerText = taskString; // innerText can handle special chars, unlike HTML.
-
-	checkBox.type = "checkbox"; // declaring checkbox type for checkbox
-	editInput.type = "text"; // declaring text type for input
+	label.innerText = taskString;
+	checkBox.type = "checkbox";
+	editInput.type = "text";
 
 	renameButton.innerText = "Rename";	
 	renameButton.className = "rename";
 	deleteButton.innerText = "Delete";
 	deleteButton.className = "delete";
 
-	// Append List Items
-	listItem.appendChild(checkBox); // checkbox
-	listItem.appendChild(label); // label
-	listItem.appendChild(editInput); // input text
-	listItem.appendChild(renameButton); // rename button
-	listItem.appendChild(deleteButton); // delete button
-	return listItem; // now that items are appended, return them all
+	// Each list item needs these elements appended to them.
+	listItem.appendChild(checkBox);
+	listItem.appendChild(label);
+	listItem.appendChild(editInput);
+	listItem.appendChild(renameButton);
+	listItem.appendChild(deleteButton);
+	return listItem;
 }
 
-// 3. Add a Task
+// 3. Functionality to Add a Task
 let addTask = function () {
 	let listItem = createNewTaskElement(taskInput.value);
 
@@ -41,52 +39,11 @@ let addTask = function () {
 		return;
 	}
 
-	incompleteTaskHolder.appendChild(listItem); // listItem needs to be added to Incomplete List Task Holder
+	incompleteTaskList.appendChild(listItem); // listItem needs to be added to Incomplete List Task List before being bound
 	bindTaskEvents(listItem, taskCompleted);
-
 	taskInput.value = "";
 }
 
-// 4. Rename a Task
-let renameTask = function () {
-	let listItem = this.parentNode;
-
-	let editInput = listItem.querySelector('input[type=text]');
-	let label = listItem.querySelector("label");
-	let containsClass = listItem.classList.contains("renameMode");
-
-    // Check if parent class element is in Rename Mode
-	if (containsClass) {
-		label.innerText = editInput.value;
-	} else {
-		editInput.value = label.innerText;
-	}
-
-	listItem.classList.toggle("renameMode");
-}
-
-// 5. Delete a Task
-let deleteTask = function () {
-	let listItem = this.parentNode;
-	let ul = listItem.parentNode;
-	ul.removeChild(listItem); // Removes parent list item from the unordered list.
-}
-
-// 6. Complete a Task
-let taskCompleted = function () {
-	let listItem = this.parentNode;
-	completedTasksHolder.appendChild(listItem); // Appends task list item to completed tasks list.
-	bindTaskEvents(listItem, taskIncomplete);
-}
-
-// 7. Check Off Task as Incomplete
-let taskIncomplete = function () {
-	let listItem = this.parentNode;
-	incompleteTaskHolder.appendChild(listItem);
-	bindTaskEvents(listItem, taskCompleted);
-}
-
-// 8. Add a Task
 addButton.onclick = addTask;
 addButton.addEventListener("click", addTask);
 
@@ -96,23 +53,61 @@ taskInput.addEventListener("keypress", function(event) {
     }
 });
 
+// 4. Functionality to Rename a Task
+let renameTask = function () {
+	let listItem = this.parentNode;
+	let editInput = listItem.querySelector('input[type=text]');
+	let label = listItem.querySelector("label");
+	let containsClass = listItem.classList.contains("renameMode");
+
+    	// Check if parent class element is set to be renamed.
+	if (containsClass) {
+		label.innerText = editInput.value;
+	} else {
+		editInput.value = label.innerText;
+	}
+
+	listItem.classList.toggle("renameMode");
+}
+
+// 5. Functionality to Delete a Task
+let deleteTask = function () {
+	let listItem = this.parentNode;
+	let ul = listItem.parentNode;
+	ul.removeChild(listItem); // Removes parent list item from the unordered list.
+}
+
+// 6. Functionality to Complete a Task
+let taskCompleted = function () {
+	let listItem = this.parentNode;
+	completedTaskList.appendChild(listItem); // Appends task list item to completed tasks list.
+	bindTaskEvents(listItem, taskIncomplete);
+}
+
+// 7. Functionality to Check Off a Task as Incomplete
+let taskIncomplete = function () {
+	let listItem = this.parentNode;
+	incompleteTaskList.appendChild(listItem);
+	bindTaskEvents(listItem, taskCompleted);
+}
+
+// 8. Logic for Binding Rename/Delete Functionality to Buttons/Checkboxes
 let bindTaskEvents = function (taskListItem, checkBoxEventHandler) {	
-    // Select List Item's Child
+    	// Select list item's child.
 	let checkBox = taskListItem.querySelector("input[type=checkbox]");
 	let renameButton = taskListItem.querySelector("button.rename");
 	let deleteButton = taskListItem.querySelector("button.delete");
 
-	// Bind Task to Respective Button or Checkbox
+	// Bind task based on button or checkbox activity.
 	renameButton.onclick = renameTask;
 	deleteButton.onclick = deleteTask;
 	checkBox.onchange = checkBoxEventHandler;
 }
 
-// 9. Bind Events to List Item Child Elements (for both Complete and Incomplete Tasks)
-for (let i = 0; i < incompleteTaskHolder.children.length; i++) {
-	bindTaskEvents(incompleteTaskHolder.children[i], taskCompleted);
+for (let i = 0; i < incompleteTaskList.children.length; i++) {
+	bindTaskEvents(incompleteTaskList.children[i], taskCompleted);
 }
 
-for (let i = 0; i < completedTasksHolder.children.length; i++) {
-	bindTaskEvents(completedTasksHolder.children[i], taskIncomplete);
+for (let i = 0; i < completedTaskList.children.length; i++) {
+	bindTaskEvents(completedTaskList.children[i], taskIncomplete);
 }
