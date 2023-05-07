@@ -81,8 +81,12 @@ let renameTask = function () {
 
 	// Method to be called if the task name should be updated.
 	modifyTaskName = () => {
-		label.innerText = editInput.value;
-		listItem.classList.toggle("renameMode");
+		if (editInput.value === "") {
+			alert("Please enter a task name.");
+		} else {
+			label.innerText = editInput.value;
+			listItem.classList.toggle("renameMode");
+		}
 	}
 }
 
