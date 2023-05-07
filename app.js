@@ -7,6 +7,7 @@ let completedTaskList = document.getElementById("completed-tasks");
 // 2. Prepare (Declare, Append) Elements Needed for List Items
 let createNewTaskElement = function (taskString) {
 	let listItem = document.createElement("li");
+	listItem.classList.add('test');
 	let checkBox = document.createElement("input");
 	let label = document.createElement("label");
 	let editInput = document.createElement("input");
@@ -58,16 +59,31 @@ let renameTask = function () {
 	let listItem = this.parentNode;
 	let editInput = listItem.querySelector('input[type=text]');
 	let label = listItem.querySelector("label");
-	let containsClass = listItem.classList.contains("renameMode");
 
-    	// Check if parent class element is set to be renamed.
-	if (containsClass) {
-		label.innerText = editInput.value;
+	// Check if list item is ready to be renamed.
+	if (listItem.classList.contains("renameMode")) {
+		modifyTaskName();
 	} else {
 		editInput.value = label.innerText;
+		listItem.classList.toggle("renameMode");
 	}
 
-	listItem.classList.toggle("renameMode");
+	// Logic for if user confirms item rename with enter key instead of rename button press.
+	listItem.addEventListener("keypress", function(event) {
+    	if (event.key === "Enter") {
+			if (listItem.classList.contains("renameMode")) {
+				modifyTaskName();
+			} else {
+				editInput.value = label.innerText;
+			}
+    	}
+	});
+
+	// Method to be called if the task name should be updated.
+	modifyTaskName = () => {
+		label.innerText = editInput.value;
+		listItem.classList.toggle("renameMode");
+	}
 }
 
 // 5. Functionality to Delete a Task
