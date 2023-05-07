@@ -1,4 +1,6 @@
-# This is a simple Task Tracker app, with the ability to add, rename, and delete tasks.
+# Task Tracker App
+
+Tasks may be added, renamed, or deleted.
 
 Live Demo: https://chaseofthejungle.github.io/task-tracker/
 
