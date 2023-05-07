@@ -1,7 +1,5 @@
 # Task Tracker App
 
-Tasks may be added, renamed, or deleted.
+Tasks may be added or renamed using a button or the Enter key, and may be deleted by clicking a delete button.
 
 Live Demo: https://chaseofthejungle.github.io/task-tracker/
-
-TODO: Allow rename of a listed task item after pressing Enter on the keyboard.
