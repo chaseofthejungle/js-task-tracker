@@ -4,5 +4,4 @@ Tasks may be added or renamed using a button or the Enter key, and may be delete
 
 Live Demo: https://chaseofthejungle.github.io/task-tracker/
 
-TODO #1: Prohibit unchecking of task item box if item name is blank.
-TODO #2: Add JDBC connectivity.
+TODO: Add Node.js/MySQL persistence.
