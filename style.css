@@ -88,6 +88,10 @@ button:hover {
     color: #33f;
 }
 
+.rename:hover, .delete:hover {
+    height: 30px;
+}
+
 /* Labels and Input */
 h3, label[for='new-task'] {
     color: #110;
