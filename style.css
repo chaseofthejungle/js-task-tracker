@@ -90,6 +90,7 @@ button:hover {
 
 .rename:hover, .delete:hover {
     height: 30px;
+    font-weight: bold;
 }
 
 /* Labels and Input */
