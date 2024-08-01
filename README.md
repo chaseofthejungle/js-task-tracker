@@ -1,4 +1,4 @@
-# Task Tracker App
+# JS Task Tracker
   
 **Description:** Generates lists of in progress and completed tasks. Tasks may be added or renamed using a button or the Enter key, and may be deleted by clicking a delete button.  
   
