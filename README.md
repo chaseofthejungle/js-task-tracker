@@ -1,6 +1,6 @@
 # JS Task Tracker
   
-**Description:** Generates lists of in progress and completed tasks. Tasks may be added or renamed using a button or the Enter key, and may be deleted by clicking a delete button. Should be compatible with all popular web browsers.
+**Description:** Generates lists of in progress and completed tasks. Tasks may be added or renamed using a button or the Enter key, and may be deleted by clicking a delete button. Compatible with all popular web browsers.
   
 **Live Demo:** [Click Here](https://chaseofthejungle.github.io/js-task-tracker/app/)  
 
