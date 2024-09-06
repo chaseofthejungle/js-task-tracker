@@ -8,5 +8,5 @@
   
 ![JS Task Tracker](https://github.com/chaseofthejungle/js-task-tracker/blob/main/tasktrackerdemo.png "Task Tracker Preview")  
   
-TODO #1: Add option (through click of a button) to export task data as a text file (.txt or .csv).  
+TODO #1: Add option (through click of a button) to export task data as a .csv file.  
 TODO #2: Add Node.js/MySQL persistence (enabling data to repopulate when app is revisited).
